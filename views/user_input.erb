@@ -5,7 +5,12 @@
     <title>title</title>
   </head>
   <body>
-    <h1>Pig Latinizer</h1>
-  
+    <h1>Pig Latinizer!</h1>
+    <form action="/" method="get">
+      <label>Enter your phrase: </label>
+      <input type="text" name="latinizer"/>
+      <input type="submit" value="Latinize!"/>
+    </form>
+   <%=@analyzed_words%>
   </body>
 </html>
