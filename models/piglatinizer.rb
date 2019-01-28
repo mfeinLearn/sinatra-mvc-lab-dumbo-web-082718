@@ -11,7 +11,7 @@ class PigLatinizer
       words = entry.split(' ')
       new_array = []
       see = words.each{ |word| new_array << the_pig_latinizer(word) }
-      new_array.
+      new_array.join( , )
       #binding.pry
     else
       the_pig_latinizer(entry)
