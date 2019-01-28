@@ -20,7 +20,7 @@ class PigLatinizer
 
   def the_pig_latinizer(word)
     #binding.pry
-    @word = word.downcase
+    @word = word#.downcase
     shifting = word.split("")
     beginning_letter = shifting.shift
     if beginning_letter.scan(/[AEIOUaeiou]/).first
