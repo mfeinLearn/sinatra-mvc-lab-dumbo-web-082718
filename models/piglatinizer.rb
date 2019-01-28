@@ -11,6 +11,7 @@ class PigLatinizer
       words = entry.split(' ')
       new_array = []
       see = words.each{ |word| new_array << the_pig_latinizer(word) }
+      #binding.pry
       new_array.join(",").gsub(",",' ')
       #binding.pry
     else
