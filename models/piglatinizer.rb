@@ -7,36 +7,36 @@ class PigLatinizer
   end
 
   def is_a_sentence?(entry)
-    if entry.match(" ")
       words = entry.split(' ')
       new_array = []
-      see = words.each{ |word| new_array << the_pig_latinizer(word) }
-      #binding.pry
-      new_array.join(",").gsub(",",' ')
-      #binding.pry
-    else
-      the_pig_latinizer(entry)
-    end
+      see = words.each do |word|
+        new_array << the_pig_latinizer(word)
+      end
+      #binding.pry if words.length > 1
+      new_array.join(" ")
   end
 
   def the_pig_latinizer(word)
-    #binding.pry
-    @word = word#.downcase
-    shifting = word.split("")
-    beginning_letter = shifting.shift
-    if beginning_letter.scan(/[AEIOUaeiou]/).first
-      vowel
-    elsif beginning_letter.scan(/[bcdfghjklmnpqrstvwxyz]/).first
-      second_letter = shifting.shift
-      if second_letter.scan(/[bcdfghjklmnpqrstvwxyz]/).first
-      consonant_cluster
+    # if word == "He"
+    #   #binding.pry
+    # end
+    # shifting = word.split("")
+    # beginning_letter = shifting.shift
+    if word[0].scan(/[AEIOUaeiou]/).first
+      vowel(word)
+    elsif word[0].scan(/[BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz]/).first
+      # if word == "He"
+      #   #binding.pry
+      # end
+      if word[1].scan(/[bcdfghjklmnpqrstvwxyz]/).first
+      consonant_cluster(word)
       else
-        consonant
+        consonant(word)
       end
     end
   end
 
-  def consonant
+  def consonant(word)
     shifting = word.split("")
     beginning_letter = shifting.shift
       shifting << beginning_letter
@@ -45,7 +45,7 @@ class PigLatinizer
       shifting.join
   end
 
-  def consonant_cluster
+  def consonant_cluster(word)
 
     shifting = word.split("")
      beginning_letter = shifting.shift
@@ -68,7 +68,7 @@ class PigLatinizer
     end
   end
 
-  def vowel
+  def vowel(word)
     shifting = word.split("")
     shifting << "w"
     shifting << "a"
