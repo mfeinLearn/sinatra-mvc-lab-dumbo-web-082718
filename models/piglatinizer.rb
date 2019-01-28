@@ -7,7 +7,7 @@ class PigLatinizer
     @word = word.downcase
     shifting = word.split("")
     beginning_letter = shifting.shift
-    if beginning_letter.scan(/[aeiou]/).first
+    if beginning_letter.scan(/[AEIOUaeiou]/).first
       vowel
     elsif beginning_letter.scan(/[bcdfghjklmnpqrstvwxyz]/).first
       second_letter = shifting.shift
@@ -17,6 +17,10 @@ class PigLatinizer
         consonant
       end
     end
+  end
+
+  def sentence_spliter
+  #  .split(' ')
   end
 
   def consonant
@@ -42,6 +46,7 @@ class PigLatinizer
 
   def vowel
     shifting = word.split("")
+    shifting << "w"
     shifting << "a"
     shifting << "y"
     shifting.join
