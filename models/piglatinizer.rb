@@ -9,8 +9,10 @@ class PigLatinizer
   def is_a_sentence?(entry)
     if entry.match(" ")
       words = entry.split(' ')
-      binding.pry
-      see = words.each{ |word| the_pig_latinizer(word) }
+      new_array = []
+      see = words.each{ |word| new_array << the_pig_latinizer(word) }
+      new_array.
+      #binding.pry
     else
       the_pig_latinizer(entry)
     end
