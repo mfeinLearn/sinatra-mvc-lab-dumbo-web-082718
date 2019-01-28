@@ -49,12 +49,23 @@ class PigLatinizer
     shifting = word.split("")
      beginning_letter = shifting.shift
        second_letter = shifting.shift
+       third_letter = shifting.shift
+       if third_letter.scan(/[bcdfghjklmnpqrstvwxyz]/).first
+        shifting << beginning_letter
+        shifting << second_letter
+        shifting << third_letter
+        shifting << "a"
+        shifting << "y"
+        shifting.join
+      else
+        shifting.unshift(third_letter)
         shifting << beginning_letter
         shifting << second_letter
         shifting << "a"
         shifting << "y"
         shifting.join
     end
+  end
 
   def vowel
     shifting = word.split("")
