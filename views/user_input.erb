@@ -6,12 +6,12 @@
   </head>
   <body>
     <h1>Pig Latinizer!</h1>
-    <form action="/" method="post">
+    <form action="/piglatinize" method="post">
       <label>Enter your phrase: </label>
-      <input type="text" name="latinizer"/>
-      <input type="submit" value="Latinize!"/>
+      <input type="text" id="phrase" name="user_phrase"/>
+      <input type="submit"/>
     </form>
    <%=@analyzed_words%>
-   user_phrase
+
   </body>
 </html>
