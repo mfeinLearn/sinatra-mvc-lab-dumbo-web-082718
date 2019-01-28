@@ -2,17 +2,22 @@ class PigLatinizer
   require 'pry'
   attr_accessor :word
 
-def is_a_sentence?(word)
-  if word.match(" ")
-    word.split(' ')
+  def piglatinize(entry)
+    is_a_sentence?(entry)
+  end
 
-  else
-    piglatinize(word)
-end
+  def is_a_sentence?(entry)
+    if entry.match(" ")
+      words = entry.split(' ')
+      binding.pry
+      see = words.each{ |word| the_pig_latinizer(word) }
+    else
+      the_pig_latinizer(entry)
+    end
+  end
 
-  def piglatinize(word)
-    is_a_sentence?(word)
-    binding.pry
+  def the_pig_latinizer(word)
+    #binding.pry
     @word = word.downcase
     shifting = word.split("")
     beginning_letter = shifting.shift
@@ -36,10 +41,6 @@ end
       shifting << "y"
       shifting.join
   end
-
-  # def the_pig_latinizer
-  #
-  # end
 
   def consonant_cluster
 
